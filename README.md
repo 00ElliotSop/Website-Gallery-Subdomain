@@ -1,1 +1,1 @@
-# Gallery-Subdomain-Template
+# Gallery-Subdomain
