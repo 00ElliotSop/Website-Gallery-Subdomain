@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>360 Videobooth — Project Party Productions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" type="image/jpeg" href="https://sub.projectpartyproductions.com/Logoz/Logooo.jpg">
+<script src="/assets/js/lazyload.js" defer></script>
+</head>
+
+<body class="landing">
+  <!-- Centered header (matches home) -->
+  <header class="center-logo">
+    <a href="https://projectpartyproductions.com">
+      <img src="/assets/images/Logo-top-left-page.jpg" alt="Project Party Productions Logo" class="logo-main">
+    </a>
+    <h1>360 Videobooth Gallery</h1>
+    <div class="socials">
+      <a href="https://instagram.com/projectpartyproductions" target="_blank" aria-label="Instagram">
+        <img src="/assets/images/icon-instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@projectpartyproductions" target="_blank" aria-label="TikTok">
+        <img src="/assets/images/icon-tiktok.svg" alt="TikTok">
+      </a>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <section id="gallery" class="grid"></section>
+  <div class="bottom-cta"><button id="back-top" class="back-top">Back to Top</button></div>
+
+  <!-- Toast -->
+  <div class="toast"></div>
+
+  <!-- Step 1: Download modal -->
+  <div class="dl-modal">
+    <div class="card">
+      <h3>Download Photo</h3>
+      <div class="group">
+        <div style="font-weight:700;margin-bottom:6px;">Photo size</div>
+        <label><input id="dl-size-high" type="radio" name="dl-size" value="high" checked> High Resolution</label>
+        <label><input type="radio" name="dl-size" value="web"> Web Size</label>
+      </div>
+      <div class="group" style="margin-top:10px;">
+        <div style="font-weight:700;margin-bottom:6px;">Download to</div>
+        <label><input id="dl-dest-device" type="radio" name="dl-dest" value="device" checked> Save to My Device</label>
+        <label><input type="radio" name="dl-dest" value="email"> Email me a link</label>
+      </div>
+      <div class="row">
+        <button id="dl-cancel" class="ghost">Cancel</button>
+        <button id="dl-go">Download</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Email modal -->
+  <div class="dl-email-modal">
+    <div class="card">
+      <h3>Download Image</h3>
+      <p style="margin:6px 0 8px">Enter your email to have a download link sent to you.</p>
+      <input id="dl2-email" type="email" placeholder="your@email.com">
+      <div class="row">
+        <button id="dl2-cancel" class="ghost">Cancel</button>
+        <button id="dl2-go">Send Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lb" role="dialog" aria-modal="true">
+    <button id="lb-close" class="lb-close iconbtn" title="Close" aria-label="Close">←</button>
+    <div class="lb-top">
+      <button id="lb-dl" class="iconbtn" title="Download" aria-label="Download">⬇</button>
+      <button id="lb-share" class="iconbtn" title="Share" aria-label="Share">↗</button>
+    </div>
+    <div class="lb-inner">
+      <img id="lb-img" class="lb-media" style="display:none" alt="">
+      <video id="lb-vid" class="lb-media" style="display:none" controls playsinline></video>
+      <div class="filename" id="lb-filename"></div>
+    </div>
+    <div class="lb-nav">
+      <button id="lb-prev" class="iconbtn" title="Prev" aria-label="Previous">‹</button>
+      <button id="lb-next" class="iconbtn" title="Next" aria-label="Next">›</button>
+    </div>
+  </div>
+
+  <script>
+  window.GAL = {
+    name: "360 Videobooth",
+    slug: "360-videobooth",
+    items: [
+   //   {src:"360_0001.jpg", type:"img"},
+   //   {src:"360_0002.jpg", type:"img"},
+      {src:"/assets/images/videob1.mp4", type:"video"},
+      {src:"/assets/images/videob2.mp4", type:"video"},
+      {src:"/assets/images/videob3.mp4", type:"video"},
+      {src:"/assets/images/videob4.mp4", type:"video"},
+      {src:"/assets/images/videob5.mp4", type:"video"},
+      {src:"/assets/images/videob6.mp4", type:"video"},
+      {src:"/assets/images/videob7.mp4", type:"video"},
+      {src:"/assets/images/videob8.mp4", type:"video"},
+      {src:"/assets/images/videob9.mp4", type:"video"},
+
+      {src:"/assets/images/videob10.jpg", type:"img"},
+      {src:"/assets/images/videob12.jpg", type:"img"},
+      {src:"/assets/images/videob13.jpg", type:"img"},
+      {src:"/assets/images/videob14.jpg", type:"img"},
+      {src:"/assets/images/videob15.jpg", type:"img"},
+      {src:"/assets/images/videob16.jpg", type:"img"},
+      {src:"/assets/images/videob17.jpg", type:"img"},
+
+      {src:"/assets/images/videob18.mp4", type:"video"},
+
+      {src:"/assets/images/videob19.jpg", type:"img"},
+      {src:"/assets/images/videob20.jpg", type:"img"},
+
+      {src:"/assets/images/videob21.mp4", type:"video"},
+
+      {src:"/assets/images/videob22.mp4", type:"video"},
+      {src:"/assets/images/videob23.mp4", type:"video"},
+      {src:"/assets/images/videob24.mp4", type:"video"},
+      {src:"/assets/images/videob25.mp4", type:"video"},
+      {src:"/assets/images/videob26.mp4", type:"video"},
+      {src:"/assets/images/videob27.mp4", type:"video"},
+      {src:"/assets/images/videob28.mp4", type:"video"},
+      {src:"/assets/images/videob29.mp4", type:"video"},
+      {src:"/assets/images/videob30.mp4", type:"video"},
+
+      {src:"/assets/images/videob31.jpg", type:"img"},
+      {src:"/assets/images/videob32.jpg", type:"img"},
+      {src:"/assets/images/videob33.jpg", type:"img"},
+
+      {src:"/assets/images/videob34.mp4", type:"video"},
+      {src:"/assets/images/videob35.mp4", type:"video"},
+      {src:"/assets/images/videob36.mp4", type:"video"},
+      {src:"/assets/images/videob37.mp4", type:"video"},
+      {src:"/assets/images/videob38.mp4", type:"video"},
+      {src:"/assets/images/videob39.mp4", type:"video"},
+      {src:"/assets/images/videob40.mp4", type:"video"},
+      {src:"/assets/images/videob41.mp4", type:"video"},
+
+      {src:"/assets/images/videob42.jpg", type:"img"},
+
+      {src:"/assets/images/videob43.mp4", type:"video"},
+
+      {src:"/assets/images/videob44.jpg", type:"img"},
+
+      {src:"/assets/images/videob45.mp4", type:"video"}
+
+    ]
+  };
+  </script>
+
+  <!-- Ensure gallery.js binds AFTER window.GAL + DOM -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Force defer-like lazy load but guarantee DOM presence
+  const s = document.createElement("script");
+  s.src = "/assets/js/gallery.js";
+  s.onload = () => {
+    // Defensive rebinding for close button in case gallery.js attached early
+    const closeBtn = document.getElementById("lb-close");
+    if (closeBtn) {
+      closeBtn.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const lb = document.querySelector(".lb");
+        if (lb) lb.classList.remove("open");
+        const vid = document.getElementById("lb-vid");
+        if (vid && !vid.paused) vid.pause();
+      };
+    }
+  };
+  document.body.appendChild(s);
+});
+</script>
+
+
+
+</body>
+</html>
